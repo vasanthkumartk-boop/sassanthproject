@@ -1,6 +1,9 @@
 pipeline {
     agent any
-            stage('Build Docker Image') {
+
+    stages {
+
+        stage('Build Docker Image') {
             steps {
                 sh 'docker build -t my-app .'
             }
@@ -8,8 +11,9 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-               sh 'docker run -d -p 8081:80 my-app'
+                sh 'docker run -d -p 8081:80 my-app'
             }
         }
+
     }
 }

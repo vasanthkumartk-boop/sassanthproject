@@ -1,15 +1,6 @@
 pipeline {
     agent any
-
-    stages {
-
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/vasanthkumartk-boop/sassanthproject.git'
-            }
-        }
-
-        stage('Build Docker Image') {
+            stage('Build Docker Image') {
             steps {
                 sh 'docker build -t my-app .'
             }

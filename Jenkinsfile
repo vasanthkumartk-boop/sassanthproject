@@ -8,11 +8,7 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-                sh '''
-                docker stop my-app || true
-                docker rm my-app || true
-                docker run -d -p 80:80 --name my-app my-app
-                '''
+               sh 'docker run -d -p 8081:80 my-app'
             }
         }
     }
